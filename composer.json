@@ -1,0 +1,109 @@
+{
+    "name": "token_project_vendor/token_project_id",
+    "description": "token_project_description",
+    "type": "project",
+    "license": "EUPL-1.2",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.3",
+        "composer/installers": "^2.2",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/core": "^11",
+        "drupal/core-composer-scaffold": "^11",
+        "drush/drush": "^13"
+    },
+    "require-dev": {
+        "behat/mink-selenium2-driver": "^1.4",
+        "drupal/core-dev": "^11",
+        "drupal/drupal-driver": "^2.2.0",
+        "drupal/drupal-extension": "~4.0 || ^5",
+        "ec-europa/toolkit": "^10"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "Subsite\\composer\\SetupWizard::setup"
+        ],
+        "post-install-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/openeuropa/oe_dashboard_agent"
+        },
+        {
+            "type": "path",
+            "url": "lib/*/*"
+        }
+    ],
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+              "web-root": "./web"
+            }
+        },
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/SetupWizard.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenEuropa\\Site\\Tests\\": "./tests/"
+        }
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "ec-europa/toolkit-composer-plugin": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
+        }
+    }
+}
