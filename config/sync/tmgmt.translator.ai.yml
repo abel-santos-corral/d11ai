@@ -1,0 +1,23 @@
+uuid: 9ab5c0d6-f610-4f3c-8d06-d3060a0f6e01
+langcode: en
+status: true
+dependencies:
+  module:
+    - ai_tmgmt
+name: ai
+label: AI
+description: 'AI Translator service.'
+auto_accept: true
+weight: null
+plugin: ai
+settings:
+  model_selection_type: ai_tmgmt
+  chat_model: mistral__mistral-tiny
+  tokenizer_model: mistral__mistral-medium
+  advanced:
+    prompt: 'Translate from %source% into %target% language'
+    max_tokens: '4096'
+remote_languages_mappings:
+  en: en
+  fr: fr
+  es: es
