@@ -9,9 +9,12 @@
         "php": ">=8.3",
         "composer/installers": "^2.2",
         "cweagans/composer-patches": "^1.7",
+        "drupal/ai": "^1.1",
+        "drupal/ai_provider_mistral": "^1.0@beta",
         "drupal/core": "^11",
         "drupal/core-composer-scaffold": "^11",
-        "drush/drush": "^13"
+        "drush/drush": "^13",
+        "symfony/http-client": "^6.4"
     },
     "require-dev": {
         "behat/mink-selenium2-driver": "^1.4",
