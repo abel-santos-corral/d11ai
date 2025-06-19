@@ -11,8 +11,10 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/ai": "^1.1",
         "drupal/ai_provider_mistral": "^1.0@beta",
+        "drupal/ai_tmgmt": "^1.0@beta",
         "drupal/core": "^11",
         "drupal/core-composer-scaffold": "^11",
+        "drupal/tmgmt": "^1.17",
         "drush/drush": "^13",
         "symfony/http-client": "^6.4"
     },
